@@ -1,0 +1,10 @@
+# Security
+
+sudo su                    - Become root
+ufw enable                 - Enable Uncomplicated Firewall
+ufw status                 - Show firewall status
+iptables -L                - List iptables rules
+fail2ban-client status     - Show Fail2Ban status
+chkrootkit                 - Scan for rootkits (if installed)
+auditctl -l                - List audit rules
+setfacl -m u:alice:rw file - ACL: Give user access to file

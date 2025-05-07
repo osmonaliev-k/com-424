@@ -1,0 +1,9 @@
+# File Management
+
+ls -l             - List files with permissions
+cp src dest       - Copy files
+mv old new        - Move or rename files
+rm file           - Delete file
+mkdir dir         - Create directory
+rmdir dir         - Remove empty directory
+find . -name "x"  - Find files by name

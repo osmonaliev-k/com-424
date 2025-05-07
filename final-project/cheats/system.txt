@@ -1,0 +1,9 @@
+# System Management
+
+uname -a                 - Show system info
+df -h                    - Show disk usage
+free -m                  - Show memory usage
+uptime                   - System uptime
+dmesg                    - Kernel ring buffer logs
+journalctl               - Systemd logs (if available)
+reboot                   - Reboot system

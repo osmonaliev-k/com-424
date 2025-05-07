@@ -1,0 +1,7 @@
+# Permissions
+
+chmod +x file          - Make file executable
+chmod 755 script.sh    - Set executable permissions
+chown user:group file  - Change ownership
+umask                  - Show default permission mask
+ls -l                  - View file permissions

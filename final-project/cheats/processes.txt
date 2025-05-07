@@ -1,0 +1,8 @@
+# Processes
+
+ps aux                - List running processes
+top                   - Dynamic real-time process viewer
+htop                  - Enhanced top (if installed)
+kill PID              - Terminate process by PID
+killall <name>        - Kill by name
+nice -n 10 command    - Run with priority

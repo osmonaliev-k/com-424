@@ -1,0 +1,10 @@
+# Networking
+
+ifconfig           - Show network interfaces (deprecated)
+ip a               - Show IP address configuration
+ping <host>        - Test network connection
+netstat -tulnp     - List listening ports and services
+ss -tuln           - Faster alternative to netstat
+nmap <ip>          - Port scanning on target
+traceroute <host>  - Show packet route
+dig <domain>       - DNS lookup
